@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        InputStreamReader isr = new InputStreamReader(System.in);
         Scanner sc = new Scanner(System.in);
-        String fileName = "data";
+        String fileName = "data/";
         if (args.length > 0)
             fileName = args[0];
 
@@ -30,19 +29,16 @@ public class Main {
         commandManager.addCommand("insert", new CommandInsert(lhm));
         commandManager.addCommand("show", new CommandShow(lhm));
         commandManager.addCommand("update", new CommandUpdate(lhm));
+        commandManager.addCommand("remove_key", new CommandRemoveKey(lhm));
+        commandManager.addCommand("clear", new CommandClear(lhm));
+        commandManager.addCommand("save", new CommandSave(lhm, file));
+        commandManager.addCommand("execute_script", new CommandExecuteScript(file));
 
         while(true) {
             String name = sc.next();
             Command cmd = commandManager.getCommand(name);
             cmd.execute(sc);
         }
-
-
-        //PrintWriter pw = new PrintWriter(file);
-        //LinkedHashMap<Integer, SpaceMarine> spaceMarineLinkedHashMap = new LinkedHashMap();
-//        pw.flush();
-//        pw.write("{Correct Input}");
-//        pw.close();
     }
 
     private static String makePath(String fileName) {
@@ -53,4 +49,8 @@ public class Main {
         Scanner in = new Scanner(System.in);
         return in.next();
     }
+}
+
+class WorkWithFile {
+
 }

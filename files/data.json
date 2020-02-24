@@ -1,0 +1,2 @@
+322 SpaceMarine{id=2582783, name='Solo', coordinates=Coordinates{x=0, y=0}, creationDate=2020-02-23T12:34:49.024599, health=228.0, loyal=false, weaponType=PLASMA_GUN, meleeWeapon=CHAIN_SWORD, chapter=Chapter{name='global', marinesCount=0, world='dota2'}}
+228 SpaceMarine{id=3288224, name='kent', coordinates=Coordinates{x=0, y=0}, creationDate=2020-02-23T12:35:14.532114, health=322.0, loyal=true, weaponType=FLAMER, meleeWeapon=CHAIN_AXE, chapter=Chapter{name='global', marinesCount=0, world='dota2'}}

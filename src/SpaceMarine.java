@@ -1,7 +1,8 @@
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Scanner;
 
-public class SpaceMarine {
+public class SpaceMarine implements Cloneable {
     /**
      * @param
      */
@@ -15,28 +16,41 @@ public class SpaceMarine {
     private MeleeWeapon meleeWeapon = null; //Поле может быть null
     private Chapter chapter; //Поле не может быть null
 
-    public SpaceMarine(String name, Coordinates coordinates, float health, boolean loyal, Chapter chapter) {
+    public SpaceMarine(String name, Coordinates coordinates, float health, boolean loyal, Weapon weaponType, MeleeWeapon meleeWeapon, Chapter chapter) {
+        this.id = name.hashCode();
         this.name = name;
         this.coordinates = coordinates;
         this.health = health;
         this.loyal = loyal;
+        this.weaponType = weaponType;
+        this.meleeWeapon = meleeWeapon;
         this.chapter = chapter;
     }
 
     public SpaceMarine() {
+        creationDate = LocalDateTime.now();
     }
 
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     void scan(Scanner sc) {
         name = sc.next();
+        id = name.hashCode();
         coordinates = new Coordinates(sc.nextLong(), sc.nextLong());
         health = sc.nextFloat();
         loyal = sc.nextBoolean();
+        weaponType = Weapon.valueOf(sc.next().toUpperCase());
+        meleeWeapon = MeleeWeapon.valueOf(sc.next().toUpperCase());
         chapter = new Chapter(sc.next(), sc.nextInt(), sc.next());
     }
+
+
 
     @Override
     public String toString() {
